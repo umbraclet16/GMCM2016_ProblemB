@@ -19,6 +19,7 @@ save('base_combination.mat','base_combination');
 tic
 % genotype[1000*9445]
 genotype = fun_genotype_encoding(genotype_cell,base_combination);
+save('genotype.mat','genotype');
 toc
 
 %%
