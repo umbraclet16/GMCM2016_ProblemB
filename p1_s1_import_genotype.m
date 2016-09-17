@@ -32,7 +32,7 @@ end
 genotype_cell(1,:) = []; % remove first line.
 
 %%
-
+clear i
 
 
 
