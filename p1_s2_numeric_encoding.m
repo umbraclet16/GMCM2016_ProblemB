@@ -23,8 +23,8 @@ save('genotype.mat','genotype');
 toc
 
 %%
-
-
+% Remove genotype_cell to save memory.
+clear genotype_cell
 
 
 
