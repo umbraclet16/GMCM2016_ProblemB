@@ -28,11 +28,12 @@ for j = 1 : num_genes
     filename = ['gene_info/gene_' num2str(j) '.dat'];
     temp = textread(filename,'%s');
     
-    n_site = size(temp,1);  % number of sites in the current gene.
-    for i = 1 : n_site
+    num_site = size(temp,1);  % number of sites in the current gene.
+    for i = 1 : num_site
         gene_info{i,j} = temp{i};
     end
 end
+clear num_site
 
 %%
 % check if gene_info involves all 9445 sites.
@@ -92,6 +93,24 @@ if check_order
 end
 %------------------------------------------------------------
 clear check_order
+
+%%
+% Record the indices of the first site of each gene in index_gene[300*1].
+index_gene = zeros(num_genes,1);
+sum = 0;
+for i = 1 : num_genes
+    index_gene(i) = sum + 1;
+    % Read file the second time...
+    % This is bad but now that it doesn't take much time, I don't care...
+    filename = ['gene_info/gene_' num2str(i) '.dat'];
+    temp = textread(filename,'%s');
+    num_site = size(temp,1);  % number of sites in the current gene.
+    sum = sum + num_site;
+end
+if sum ~= n
+    disp('Sum of sites is incorrect.')
+end
+clear sum filename
 
 %%
 clear i j temp
