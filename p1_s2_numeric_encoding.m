@@ -4,7 +4,7 @@
 % Configurations.
 % Save encoding results(base_combination,genotype,genotype_3x) 
 % to .mat files?
-save_data_to_mat = 0;
+save_data_to_mat = 1;
 % Clear genotype_cell to save memory?
 save_memory = 0;
 
@@ -20,7 +20,8 @@ end
 toc
 
 if save_data_to_mat
-    save('base_combination.mat','base_combination');
+    save('data.mat','base_combination','-append');
+    % '-append' is neccessary, or former data in .mat file will be lost!!!
 end
     
 %%
@@ -30,7 +31,7 @@ tic
 % genotype[1000*9445]
 genotype = fun_genotype_encoding(genotype_cell,base_combination);
 if save_data_to_mat
-    save('genotype.mat','genotype');
+    save('data.mat','genotype','-append');
 end
 toc
 
@@ -71,7 +72,7 @@ if encoding_3x
     end
     
     if save_data_to_mat
-        save('genotype_3x.mat','genotype_3x');
+        save('data.mat','genotype_3x','-append');
     end
     toc
 end

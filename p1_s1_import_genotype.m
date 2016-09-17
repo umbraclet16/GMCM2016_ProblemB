@@ -29,6 +29,8 @@ for i = 1 : n
     site_name{i} = genotype_cell{1,i};
 end
 
+save('data.mat','site_name');
+
 genotype_cell(1,:) = []; % remove first line.
 
 %%
