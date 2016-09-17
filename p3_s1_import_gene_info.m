@@ -1,3 +1,5 @@
+% Read data from 'gene_info/gene_*.dat', and save to cell 'gene_info'.
+% Record the indices of the first site of each gene in index_gene[300].
 
 %%
 % This is convenient, but filenames are sorted like:
