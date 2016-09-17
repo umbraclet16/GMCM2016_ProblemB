@@ -30,12 +30,12 @@ for j = 1 : num_genes
     filename = ['gene_info/gene_' num2str(j) '.dat'];
     temp = textread(filename,'%s');
     
-    num_site = size(temp,1);  % number of sites in the current gene.
-    for i = 1 : num_site
+    num_site_col = size(temp,1);  % number of sites in the current gene.
+    for i = 1 : num_site_col
         gene_info{i,j} = temp{i};
     end
 end
-clear num_site
+clear num_site_col
 
 %%
 % check if gene_info involves all 9445 sites.
@@ -106,13 +106,13 @@ for i = 1 : num_genes
     % This is bad but now that it doesn't take much time, I don't care...
     filename = ['gene_info/gene_' num2str(i) '.dat'];
     temp = textread(filename,'%s');
-    num_site = size(temp,1);  % number of sites in the current gene.
-    sum = sum + num_site;
+    num_site_col = size(temp,1);  % number of sites in the current gene.
+    sum = sum + num_site_col;
 end
-if sum ~= n
+if sum ~= num_sites
     disp('Sum of sites is incorrect.')
 end
-clear sum filename
+clear sum filename num_site_col
 
 %%
 clear i j temp
