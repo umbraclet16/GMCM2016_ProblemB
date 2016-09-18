@@ -10,15 +10,17 @@
 % !!! 3 bit mode gets better result than 0~2 mode!!!
 encoding_mode = 2;
 % save 'possible_pathogenic_idx' to .mat file.
-save_to_mat = 1;
+save_to_mat = 0;
 global threshold
-threshold = 0.001;   % probability threshold in chi2 test.
+threshold = 0.0001;   % probability threshold in chi2 test.
 
 %%
 % Do Chi-square test.
 % crosstab(x,y): cross-tabulation of vectors.
 % x: phenotype; y: each column of genotype(_3x).
-x = phenotype;
+% NOTICE: we use 400 healthy and 400 ill samples to obtain the model,
+% and the other 100 healthy and 100 ill samples to test the model.
+x = [phenotype(1:400);phenotype(501:900)];
 possible_pathogenic_idx = [];   %　可能的致病位点index
 possibility = [];
 
@@ -27,7 +29,7 @@ if encoding_mode == 1
 %------------------------------------------------------------
 tic
 for i = 1 : num_sites
-    [~,~,p] = crosstab(x,genotype(:,i));
+    [~,~,p] = crosstab(x,[genotype(1:400,i);genotype(501:900)]);
     % return params 'table' and 'chi2' are useless so replaced by '~'.
     if p < threshold
         possible_pathogenic_idx = [possible_pathogenic_idx i];
@@ -48,7 +50,7 @@ if encoding_mode == 2
 %------------------------------------------------------------
 tic
 for i = 1 : num_sites*3
-    [~,~,p] = crosstab(x,genotype_3x(:,i));
+    [~,~,p] = crosstab(x,[genotype_3x(1:400,i);genotype_3x(501:900,i)]);
     % return params 'table' and 'chi2' are useless so replaced by '~'.
     if p < threshold
         possible_pathogenic_idx = [possible_pathogenic_idx; i];
@@ -65,10 +67,14 @@ end
 temp = possible_pathogenic_idx(sorted_psb_idx_temp);
 sorted_psb_idx = temp;
 toc
-% Takes around 600s. Smallest p is 1e-7. 
+% Running all 1000 samples takes around 600s. Smallest p is 1e-7. 
 % There are 276 bits satisfying p < 0.01;
 %            24 bits satisfying p < 0.001;
 %             5 bits satisfying p < 0.0001.
+% Running 800 samples takes around 530s. Smallest p is 1e-7. 
+% There are 267 bits satisfying p < 0.01;
+%            26 bits satisfying p < 0.001;
+%             6 bits satisfying p < 0.0001.
 %------------------------------------------------------------
 end
 clear encoding_mode temp sorted_psb_idx_temp
@@ -87,7 +93,7 @@ if save_to_mat
     save(mat_name_str,'possible_pathogenic_idx');
     save(mat_name_str,'sorted_psb','sorted_psb_idx','-append');
 end
-clear table chi2 p save_to_mat x y mat_name_str
+clear p save_to_mat x y mat_name_str
 
 %%
 
