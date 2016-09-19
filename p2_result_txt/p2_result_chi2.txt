@@ -5,8 +5,8 @@ Originally X has 268 columns.
 healthy_training = 378, ill_training = 379.
 healthy_training_correct_pct = 0.945, ill_training_correct_pct = 0.9475.
 healthy_test = 57, ill_test = 52.
-healthy_test_correct_pct = 0.945, ill_test_correct_pct = 0.9475.
-Save to file p2_result/p2_result_chi2_regress_p_0_01.mat.
+healthy_test_correct_pct = 0.57, ill_test_correct_pct = 0.52.
+Save to file p2_result_mat/p2_result_chi2_regress_p_0_01.mat.
 ========================================
 >> p2_s2_multiple_linear_regression
 Loading from p2_chi2_pathogenic_idx_3x_p_0_001.mat...
@@ -15,8 +15,8 @@ Originally X has 27 columns.
 healthy_training = 290, ill_training = 276.
 healthy_training_correct_pct = 0.725, ill_training_correct_pct = 0.69.
 healthy_test = 56, ill_test = 58.
-healthy_test_correct_pct = 0.725, ill_test_correct_pct = 0.69.
-Save to file p2_result/p2_result_chi2_regress_p_0_001.mat.
+healthy_test_correct_pct = 0.56, ill_test_correct_pct = 0.58.
+Save to file p2_result_mat/p2_result_chi2_regress_p_0_001.mat.
 ========================================
 >> p2_s2_multiple_linear_regression
 Loading from p2_chi2_pathogenic_idx_3x_p_0_0001.mat...
@@ -25,8 +25,8 @@ Originally X has 7 columns.
 healthy_training = 269, ill_training = 232.
 healthy_training_correct_pct = 0.6725, ill_training_correct_pct = 0.58.
 healthy_test = 50, ill_test = 54.
-healthy_test_correct_pct = 0.6725, ill_test_correct_pct = 0.58.
-Save to file p2_result/p2_result_chi2_regress_p_0_0001.mat.
+healthy_test_correct_pct = 0.5, ill_test_correct_pct = 0.54.
+Save to file p2_result_mat/p2_result_chi2_regress_p_0_0001.mat.
 ========================================
 >> p2_s2_multiple_linear_regression
 Loading from p2_chi2_pathogenic_idx_3x_p_0_01.mat...
@@ -41,8 +41,8 @@ Iteration finished.
 healthy_training = 367, ill_training = 361.
 healthy_training_correct_pct = 0.9175, ill_training_correct_pct = 0.9025.
 healthy_test = 59, ill_test = 48.
-healthy_test_correct_pct = 0.9175, ill_test_correct_pct = 0.9025.
-Save to file p2_result/p2_result_chi2_regress_p_0_01_iterate.mat.
+healthy_test_correct_pct = 0.59, ill_test_correct_pct = 0.48.
+Save to file p2_result_mat/p2_result_chi2_regress_p_0_01_iterate.mat.
 ========================================
 >> p2_s2_multiple_linear_regression
 Loading from p2_chi2_pathogenic_idx_3x_p_0_001.mat...
@@ -55,8 +55,8 @@ Iteration finished.
 healthy_training = 289, ill_training = 273.
 healthy_training_correct_pct = 0.7225, ill_training_correct_pct = 0.6825.
 healthy_test = 56, ill_test = 57.
-healthy_test_correct_pct = 0.7225, ill_test_correct_pct = 0.6825.
-Save to file p2_result/p2_result_chi2_regress_p_0_001_iterate.mat.
+healthy_test_correct_pct = 0.56, ill_test_correct_pct = 0.57.
+Save to file p2_result_mat/p2_result_chi2_regress_p_0_001_iterate.mat.
 ========================================
 >> p2_s2_multiple_linear_regression
 Loading from p2_chi2_pathogenic_idx_3x_p_0_0001.mat...
@@ -69,8 +69,8 @@ Iteration finished.
 healthy_training = 265, ill_training = 234.
 healthy_training_correct_pct = 0.6625, ill_training_correct_pct = 0.585.
 healthy_test = 50, ill_test = 54.
-healthy_test_correct_pct = 0.6625, ill_test_correct_pct = 0.585.
-Save to file p2_result/p2_result_chi2_regress_p_0_0001_iterate.mat.
+healthy_test_correct_pct = 0.5, ill_test_correct_pct = 0.54.
+Save to file p2_result_mat/p2_result_chi2_regress_p_0_0001_iterate.mat.
 ========================================
 >> p2_s2_multiple_linear_regression
 Loading from p2_chi2_pathogenic_idx_3x_p_0_01.mat...
@@ -84,8 +84,8 @@ Iteration finished.
 healthy_training = 293, ill_training = 291.
 healthy_training_correct_pct = 0.7325, ill_training_correct_pct = 0.7275.
 healthy_test = 44, ill_test = 44.
-healthy_test_correct_pct = 0.7325, ill_test_correct_pct = 0.7275.
-Save to file p2_result/p2_result_chi2_regress_p_0_01_iterate.mat.
+healthy_test_correct_pct = 0.44, ill_test_correct_pct = 0.44.
+Save to file p2_result_mat/p2_result_chi2_regress_p_0_01_iterate.mat.
 ========================================
 >> p2_s2_multiple_linear_regression
 Loading from p2_chi2_pathogenic_idx_3x_p_0_001.mat...
@@ -98,8 +98,8 @@ Iteration finished.
 healthy_training = 252, ill_training = 277.
 healthy_training_correct_pct = 0.63, ill_training_correct_pct = 0.6925.
 healthy_test = 57, ill_test = 57.
-healthy_test_correct_pct = 0.63, ill_test_correct_pct = 0.6925.
-Save to file p2_result/p2_result_chi2_regress_p_0_001_iterate.mat.
+healthy_test_correct_pct = 0.57, ill_test_correct_pct = 0.57.
+Save to file p2_result_mat/p2_result_chi2_regress_p_0_001_iterate.mat.
 ========================================
 >> p2_s2_multiple_linear_regression
 Loading from p2_chi2_pathogenic_idx_3x_p_0_0001.mat...
@@ -112,8 +112,6 @@ Iteration finished.
 healthy_training = 265, ill_training = 234.
 healthy_training_correct_pct = 0.6625, ill_training_correct_pct = 0.585.
 healthy_test = 50, ill_test = 54.
-healthy_test_correct_pct = 0.6625, ill_test_correct_pct = 0.585.
-Save to file p2_result/p2_result_chi2_regress_p_0_0001_iterate.mat.
+healthy_test_correct_pct = 0.5, ill_test_correct_pct = 0.54.
+Save to file p2_result_mat/p2_result_chi2_regress_p_0_0001_iterate.mat.
 ========================================
->> 
->> 
