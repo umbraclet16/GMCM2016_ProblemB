@@ -22,7 +22,7 @@ iterate = 1;
 % try: 0.05; 0.1; 0.15; 0.2.
 % (0.2 is already too much. Dimension is reduced to 4,
 %  elements in Yhat(Y_test) are almost same.)
-min_coef = 0.15;
+min_coef = 0.05;
 
 %%
 % Load possible_pathogenic_idx from .mat file.
@@ -145,8 +145,6 @@ if iterate
 % Iterate to remove terms with coefficients < 0.15, B dimension ->   8;
 % Iterate to remove terms with coefficients <  0.2, B dimension ->   4.
 last_B_dim = 0;
-% Record deleted columns of X.
-record_deleted_col = [];
 
 while 1
     for j = length(B) : -1 : 2 % Ignore column 1(constant term).
@@ -155,7 +153,6 @@ while 1
             X(:,j) = [];
             % Remove corresponding columns in X_test.
             X_test(:,j) = [];
-%             record_deleted_col = [record_deleted_col j];
         end
     end
     fprintf('Now X has %d columns.\n',size(X,2)) % DEBUG
@@ -207,8 +204,6 @@ X = [ones(num_samples - 200,1),X];
 % Iterate to remove terms with coefficients < 0.15, B dimension ->  13;
 % Iterate to remove terms with coefficients <  0.2, B dimension ->   4.
 last_B_dim = 0;
-% Record deleted columns of X.
-record_deleted_col = [];
 
 while 1
     for j = length(B) : -1 : 2 % Ignore column 1(constant term).
@@ -217,7 +212,6 @@ while 1
             X(:,j) = [];
             % Remove corresponding columns in X_test.
             X_test(:,j) = [];
-%             record_deleted_col = [record_deleted_col j];
         end
     end
     fprintf('Now X has %d columns.\n',size(X,2)) % DEBUG
