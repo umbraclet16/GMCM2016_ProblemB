@@ -6,7 +6,7 @@ use_genotype_3x = 1;
 % Choose multiple linear regression method.
 % 1: regress; 2: stepwisefit; 3: robustfit(logistic).
 % TODO: REMOVE 2!!!
-reg_method = 3;
+reg_method = 1;
 % Method used to extract possible pathogenic sites(bits).
 % 1: chi-square test; 2: infinite norm.
 p2_extract_method = 1;
@@ -127,7 +127,8 @@ if reg
 % in the linear model Y = X * B.
 % NOTICE: must add constant term to the left of X!
 X = [ones(num_samples - 200,1),X];    % add constant term to X.
-[B,BINT,R,RINT,STATS] = regress(Y,X);
+alpha = 0.05; % def: 0.05
+[B,BINT,R,RINT,STATS] = regress(Y,X,alpha);
 
 % STATS
 
@@ -141,8 +142,11 @@ Yhat = X * B;
 disp('Regress fit finished.')
 fprintf('Originally X has %d columns.\n',size(X,2))
 
-clear BINT R RINT % Don't need them now.
-
+% 残差与残差区间的杠杆图
+rcoplot(R,RINT)
+str_title = ['site number:' num2str(size(X,2)) ...
+    ' alpha:' num2str(alpha)];
+title(str_title)
 %------------------------------------------------------------
 if iterate
 %-------------------------------------------
@@ -168,7 +172,7 @@ while 1
         end
     end
     fprintf('Now X has %d columns.\n',size(X,2)) % DEBUG
-    [B,~,~,~,~] = regress(Y,X);
+    [B,BINT,R,RINT,STATS] = regress(Y,X,alpha);
     Yhat = X * B;
     
     % break condition: the dimension of stops decreasing.
@@ -177,6 +181,12 @@ while 1
     end
     last_B_dim = length(B);
 end
+% 残差与残差区间的杠杆图
+figure(2)
+rcoplot(R,RINT)
+str_title = ['After iteration. site number:' num2str(size(X,2)) ...
+    ' alpha:' num2str(alpha)];
+title(str_title)
 disp('Iteration finished.')
 clear last_B_dim
 %-------------------------------------------
