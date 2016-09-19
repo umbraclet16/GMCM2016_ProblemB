@@ -37,6 +37,9 @@ end
 % But it's actually NOT infinite norm...
 possible_pathogenic_idx = sorted_dif_bit_idx(1 : amount_of_bits_extracted);
 
+% Put in ascending order.
+possible_pathogenic_idx = sort(possible_pathogenic_idx);
+
 %%
 if save_to_mat
 %------------------------------------------------------------
