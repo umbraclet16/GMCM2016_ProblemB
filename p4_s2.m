@@ -7,10 +7,10 @@ min_coef = 5;
 % Use all samples. Keep no samples for test.
 x = genotype_3x;
 y = multi_phenos; % [1000*10]
-% Extract top 20 sites for each character(性状).
-num_sites_each_character = 20;
+% Extract top 150 sites for each character(性状).
+num_sites_each_character = 150;
 
-% Use to save 20*10=200 possible pathogenic sites(bits).
+% Use to save 150*10=1500 possible pathogenic sites(bits).
 % There could be repetitions! Do we need to deal with it? Guess so...
 possible_pathogenic_idx = zeros(num_sites_each_character,num_characters);
 
@@ -33,6 +33,7 @@ possible_pathogenic_idx = ...
     reshape(possible_pathogenic_idx,numel(possible_pathogenic_idx),1);
 possible_pathogenic_idx = sort(possible_pathogenic_idx,'ascend');
 possible_pathogenic_idx = fun_delete_duplicate(possible_pathogenic_idx);
+% Now there are 869 elements in possible_pathogenic_idx.
 
 %%
 Y = multi_phenos_sum.^2; % (Y(1)+...+Y(10))^2.
