@@ -100,19 +100,25 @@ clear check_order
 % Record the indices of the first site of each gene in index_gene[300*1].
 index_gene = zeros(num_genes,1);
 sum = 0;
+num_sites_in_gene = zeros(num_genes,1);
 for i = 1 : num_genes
     index_gene(i) = sum + 1;
     % Read files the second time...
     % This is bad but now that it doesn't take much time, I don't care...
     filename = ['gene_info/gene_' num2str(i) '.dat'];
     temp = textread(filename,'%s');
-    num_site_col = size(temp,1);  % number of sites in the current gene.
-    sum = sum + num_site_col;
+    num_sites_in_gene(i) = size(temp,1);  % number of sites in the current gene.
+    sum = sum + num_sites_in_gene(i);
 end
+
+num_sites = 9445;
 if sum ~= num_sites
     disp('Sum of sites is incorrect.')
+else
+    disp('The indices of first sites of each gene is saved in ''index_gene''.')
+    disp('The amount of sites of each gene is saved in ''num_sites_in_gene''.')
 end
-clear sum filename num_site_col
+clear sum filename
 
 %%
 clear i j temp
