@@ -40,6 +40,8 @@ if p2_extract_method == 1   % chi-square test.
             str2 = 'p_0_001';   % extract 24 sites.
         case 0.0001
             str2 = 'p_0_0001';   % extract 5 sites.
+        case 0.05
+            str2 = 'p_0_05';
     end
 %------------------------------------------------------------
 elseif p2_extract_method == 2   % infinite norm.
@@ -113,7 +115,9 @@ X_test = [genotype_3x(401:500,possible_pathogenic_idx); ...
           genotype_3x(901:1000,possible_pathogenic_idx)];
 
 % Add constant term to X_test if using regress() or robustfit()!!!
-X_test = [ones(200,1),X_test];
+if reg || logistic
+    X_test = [ones(200,1),X_test];
+end
 %=============================================
 
 %%
