@@ -6,12 +6,12 @@ use_genotype_3x = 1;
 % Choose multiple linear regression method.
 % 1: regress; 2: stepwisefit; 3: robustfit(logistic).
 % TODO: REMOVE 2!!!
-reg_method = 1;
+reg_method = 3;
 % Method used to extract possible pathogenic sites(bits).
 % 1: chi-square test; 2: infinite norm.
 p2_extract_method = 1;
 % Save result to .mat file?
-p2_save_result = 1;
+p2_save_result = 0;
 % Iterate regression to reduce dimension of final result?
 iterate = 1;
 % Terms with oefficients smaller than 'min_coef' will be removed
@@ -228,7 +228,12 @@ while 1
         end
     end
     fprintf('Now X has %d columns.\n',size(X,2)) % DEBUG
-    [B,~,~,~,~] = regress(Y,X);
+%--------------------
+%     [B,~,~,~,~] = regress(Y,X);
+    X(:,1) = [];
+    [B,STATS] = robustfit(X,Y,'logistic');
+    X = [ones(num_samples - 200,1),X];
+%--------------------
     Yhat = X * B;
     
     % break condition: the dimension of stops decreasing.
