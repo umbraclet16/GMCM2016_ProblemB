@@ -10,9 +10,8 @@
 % !!! 3 bit mode gets better result than 0~2 mode!!!
 encoding_mode = 2;
 % save 'possible_pathogenic_idx' to .mat file.
-save_to_mat = 0;
-global threshold
-threshold = 0.0001;   % probability threshold in chi2 test.
+save_to_mat = 1;
+threshold = 0.01;   % probability threshold in chi2 test.
 
 %%
 % Do Chi-square test.
@@ -72,6 +71,7 @@ toc
 %            24 bits satisfying p < 0.001;
 %             5 bits satisfying p < 0.0001.
 % Running 800 samples takes around 530s. Smallest p is 1e-7. 
+% There are 1339 bits satisfying p < 0.05;
 % There are 267 bits satisfying p < 0.01;
 %            26 bits satisfying p < 0.001;
 %             6 bits satisfying p < 0.0001.
@@ -88,6 +88,8 @@ if save_to_mat
             str = '_0_001';    % extract  73 sites.
         case 0.0001
             str = '_0_0001';   % extract   5 sites.
+        case 0.05
+            str = '_0_05';     % extract 1339 sites.
     end
     mat_name_str = ['p2_chi2_pathogenic_idx_3x_p' str '.mat'];
     save(mat_name_str,'possible_pathogenic_idx');
