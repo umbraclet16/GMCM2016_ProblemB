@@ -9,7 +9,7 @@ use_genotype_3x = 1;
 reg_method = 1;
 % Method used to extract possible pathogenic sites(bits).
 % 1: chi-square test; 2: infinite norm.
-p2_extract_method = 2;
+p2_extract_method = 1;
 % Save result to .mat file?
 p2_save_result = 1;
 % Iterate regression to reduce dimension of final result?
@@ -267,7 +267,7 @@ end
 filename = ['p2_result_mat/p2_result_' str1 str_method str2 str_iterate '.mat'];
 save(filename,'threshold','B','healthy_test','healthy_test_correct_pct',...
     'ill_test','ill_test_correct_pct','healthy_training','healthy_training_correct_pct',...
-    'ill_training','ill_training_correct_pct','sorted_psb','sorted_psb_idx','STATS')
+    'ill_training','ill_training_correct_pct','STATS')
 
 fprintf('Save to file %s.\n',filename)
 disp('========================================')
