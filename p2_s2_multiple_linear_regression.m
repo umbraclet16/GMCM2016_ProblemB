@@ -6,15 +6,12 @@ use_genotype_3x = 1;
 % Choose multiple linear regression method.
 % 1: regress; 2: stepwisefit; 3: robustfit(logistic).
 % TODO: REMOVE 2!!!
-reg_method = 3;
-% Threshold(p) in chi-square test.
-% Takes value in [0.01;0.001;0.0001]
-threshold = 0.01;
-%------------------------------------------------------------
+reg_method = 1;
+% Method used to extract possible pathogenic sites(bits).
 % 1: chi-square test; 2: infinite norm.
-p2_extract_method = 1;
+p2_extract_method = 2;
 % Save result to .mat file?
-p2_save_result = 0;
+p2_save_result = 1;
 % Iterate regression to reduce dimension of final result?
 iterate = 1;
 % Terms with oefficients smaller than 'min_coef' will be removed
@@ -23,27 +20,36 @@ iterate = 1;
 % (0.2 is already too much. Dimension is reduced to 4,
 %  elements in Yhat(Y_test) are almost same.)
 min_coef = 0.05;
-
+%------------------------------------------------------------
+% Threshold(p) in chi-square test.
+% Takes value in [0.01;0.001;0.0001]
+threshold = 0.01;
+%------------------------------------------------------------
+% Amount of bits extracted using infinite norm.
+% Takes value in [300;200;100;50]
+amount_of_bits_extracted = 300;
+%------------------------------------------------------------
 %%
 % Load possible_pathogenic_idx from .mat file.
 if p2_extract_method == 1   % chi-square test.
     str1 = 'chi2';
     switch threshold
         case 0.01
-            str2 = '_0_01';   % extract 276 sites.
+            str2 = 'p_0_01';   % extract 276 sites.
         case 0.001
-            str2 = '_0_001';   % extract 24 sites.
+            str2 = 'p_0_001';   % extract 24 sites.
         case 0.0001
-            str2 = '_0_0001';   % extract 5 sites.
+            str2 = 'p_0_0001';   % extract 5 sites.
     end
-% TODO: deal with infinite norm in another m file!!
+%------------------------------------------------------------
 elseif p2_extract_method == 2   % infinite norm.
     str1 = 'inf_norm';
+    str2 = num2str(amount_of_bits_extracted);
 else
     disp('p2_extract_method is invalid!')
 end
 
-mat_name_str = ['p2_' str1 '_pathogenic_idx_3x_p' str2 '.mat'];
+mat_name_str = ['p2_' str1 '_pathogenic_idx_3x_' str2 '.mat'];
 
 % ALWAYS load data from file!!!
 % if ~exist('possible_pathogenic_idx','var')
@@ -129,6 +135,7 @@ end
 
 Yhat = X * B;
 disp('Regress fit finished.')
+fprintf('Originally X has %d columns.\n',size(X,2))
 
 clear BINT R RINT % Don't need them now.
 
@@ -146,6 +153,7 @@ if iterate
 % Iterate to remove terms with coefficients <  0.2, B dimension ->   4.
 last_B_dim = 0;
 
+fprintf('Start iteration to reduce dimension, min_coef = %g:\n',min_coef)
 while 1
     for j = length(B) : -1 : 2 % Ignore column 1(constant term).
         if abs(B(j)) < min_coef
@@ -191,7 +199,7 @@ if logistic
 [B,STATS] = robustfit(X,Y,'logistic');
 Yhat = [ones(num_samples - 200,1) X] * B;
 disp('Logistic fit finished.')
-
+fprintf('Originally X has %d columns.\n',size(X,2))
 
 if iterate
 %-------------------------------------------
@@ -205,6 +213,7 @@ X = [ones(num_samples - 200,1),X];
 % Iterate to remove terms with coefficients <  0.2, B dimension ->   4.
 last_B_dim = 0;
 
+fprintf('Start iteration to reduce dimension, min_coef = %g:\n',min_coef)
 while 1
     for j = length(B) : -1 : 2 % Ignore column 1(constant term).
         if abs(B(j)) < min_coef
@@ -242,23 +251,31 @@ if p2_save_result
 % str1:extract_method; str2: threshold
 switch reg_method
     case 1
-        str_method = '_reg';
+        str_method = '_regress_';
     case 2
-        str_method  = '_stepwise';
+        str_method  = '_stepwise_';
     case 3
-        str_method = '_logistic';
+        str_method = '_logistic_';
 end
-filename = ['p2_result_' str1 str_method str2 '.mat'];
+
+if iterate
+    str_iterate = '_iterate';
+else
+    str_iterate = [];
+end
+
+filename = ['p2_result/p2_result_' str1 str_method str2 str_iterate '.mat'];
 save(filename,'threshold','B','healthy_test','healthy_test_correct_pct',...
     'ill_test','ill_test_correct_pct','healthy_training','healthy_training_correct_pct',...
     'ill_training','ill_training_correct_pct','sorted_psb','sorted_psb_idx','STATS')
 
 fprintf('Save to file %s.\n',filename)
+disp('========================================')
 %------------------------------------------------------------
 end
 clear p2_save_result
 
 %%
-clear str1 str2 filename str_method reg_method
+clear str1 str2 filename str_method reg_method iterate
 
 
