@@ -264,7 +264,7 @@ else
     str_iterate = [];
 end
 
-filename = ['p2_result/p2_result_' str1 str_method str2 str_iterate '.mat'];
+filename = ['p2_result_mat/p2_result_' str1 str_method str2 str_iterate '.mat'];
 save(filename,'threshold','B','healthy_test','healthy_test_correct_pct',...
     'ill_test','ill_test_correct_pct','healthy_training','healthy_training_correct_pct',...
     'ill_training','ill_training_correct_pct','sorted_psb','sorted_psb_idx','STATS')
