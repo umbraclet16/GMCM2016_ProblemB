@@ -14,7 +14,7 @@ end
 clear read_in_a_batch
 
 %%
-% Read data from 300 files in an inconvinient way.
+% Read data from 300 files in an inconvenient way.
 % Consumed time can be ignored.
 num_genes = 300;    % 300 genes
 line_max = 60;          % Each .dat file has no more than 60 lines.
@@ -102,7 +102,7 @@ index_gene = zeros(num_genes,1);
 sum = 0;
 for i = 1 : num_genes
     index_gene(i) = sum + 1;
-    % Read file the second time...
+    % Read files the second time...
     % This is bad but now that it doesn't take much time, I don't care...
     filename = ['gene_info/gene_' num2str(i) '.dat'];
     temp = textread(filename,'%s');
