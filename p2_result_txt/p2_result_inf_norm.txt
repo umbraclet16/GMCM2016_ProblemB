@@ -1,0 +1,167 @@
+>> p2_s2_multiple_linear_regression
+Loading from p2_inf_norm_pathogenic_idx_3x_300.mat...
+Regress fit finished.
+Originally X has 301 columns.
+healthy_training = 385, ill_training = 380.
+healthy_training_correct_pct = 0.9625, ill_training_correct_pct = 0.95.
+healthy_test = 58, ill_test = 49.
+healthy_test_correct_pct = 0.9625, ill_test_correct_pct = 0.95.
+Save to file p2_result/p2_result_inf_norm_regress_300.mat.
+========================================
+>> p2_s2_multiple_linear_regression
+Loading from p2_inf_norm_pathogenic_idx_3x_200.mat...
+Regress fit finished.
+Originally X has 201 columns.
+healthy_training = 363, ill_training = 361.
+healthy_training_correct_pct = 0.9075, ill_training_correct_pct = 0.9025.
+healthy_test = 54, ill_test = 42.
+healthy_test_correct_pct = 0.9075, ill_test_correct_pct = 0.9025.
+Save to file p2_result/p2_result_inf_norm_regress_200.mat.
+========================================
+>> p2_s2_multiple_linear_regression
+Loading from p2_inf_norm_pathogenic_idx_3x_100.mat...
+Regress fit finished.
+Originally X has 101 columns.
+healthy_training = 329, ill_training = 319.
+healthy_training_correct_pct = 0.8225, ill_training_correct_pct = 0.7975.
+healthy_test = 53, ill_test = 47.
+healthy_test_correct_pct = 0.8225, ill_test_correct_pct = 0.7975.
+Save to file p2_result/p2_result_inf_norm_regress_100.mat.
+========================================
+>> p2_s2_multiple_linear_regression
+Loading from p2_inf_norm_pathogenic_idx_3x_50.mat...
+Regress fit finished.
+Originally X has 51 columns.
+healthy_training = 313, ill_training = 312.
+healthy_training_correct_pct = 0.7825, ill_training_correct_pct = 0.78.
+healthy_test = 50, ill_test = 48.
+healthy_test_correct_pct = 0.7825, ill_test_correct_pct = 0.78.
+Save to file p2_result/p2_result_inf_norm_regress_50.mat.
+========================================
+>> p2_s2_multiple_linear_regression
+Loading from p2_inf_norm_pathogenic_idx_3x_300.mat...
+Regress fit finished.
+Originally X has 301 columns.
+Start iteration to reduce dimension, min_coef = 0.05:
+Now X has 94 columns.
+Now X has 78 columns.
+Now X has 75 columns.
+Now X has 74 columns.
+Now X has 73 columns.
+Now X has 73 columns.
+Iteration finished.
+healthy_training = 332, ill_training = 340.
+healthy_training_correct_pct = 0.83, ill_training_correct_pct = 0.85.
+healthy_test = 54, ill_test = 43.
+healthy_test_correct_pct = 0.83, ill_test_correct_pct = 0.85.
+Save to file p2_result/p2_result_inf_norm_regress_300_iterate.mat.
+========================================
+>> p2_s2_multiple_linear_regression
+Loading from p2_inf_norm_pathogenic_idx_3x_200.mat...
+Regress fit finished.
+Originally X has 201 columns.
+Start iteration to reduce dimension, min_coef = 0.05:
+Now X has 79 columns.
+Now X has 73 columns.
+Now X has 72 columns.
+Now X has 71 columns.
+Now X has 71 columns.
+Iteration finished.
+healthy_training = 340, ill_training = 338.
+healthy_training_correct_pct = 0.85, ill_training_correct_pct = 0.845.
+healthy_test = 59, ill_test = 47.
+healthy_test_correct_pct = 0.85, ill_test_correct_pct = 0.845.
+Save to file p2_result/p2_result_inf_norm_regress_200_iterate.mat.
+========================================
+>> p2_s2_multiple_linear_regression
+Loading from p2_inf_norm_pathogenic_idx_3x_100.mat...
+Regress fit finished.
+Originally X has 101 columns.
+Start iteration to reduce dimension, min_coef = 0.05:
+Now X has 59 columns.
+Now X has 55 columns.
+Now X has 55 columns.
+Iteration finished.
+healthy_training = 323, ill_training = 314.
+healthy_training_correct_pct = 0.8075, ill_training_correct_pct = 0.785.
+healthy_test = 55, ill_test = 49.
+healthy_test_correct_pct = 0.8075, ill_test_correct_pct = 0.785.
+Save to file p2_result/p2_result_inf_norm_regress_100_iterate.mat.
+========================================
+>> p2_s2_multiple_linear_regression
+Loading from p2_inf_norm_pathogenic_idx_3x_50.mat...
+Regress fit finished.
+Originally X has 51 columns.
+Start iteration to reduce dimension, min_coef = 0.05:
+Now X has 38 columns.
+Now X has 37 columns.
+Now X has 37 columns.
+Iteration finished.
+healthy_training = 314, ill_training = 301.
+healthy_training_correct_pct = 0.785, ill_training_correct_pct = 0.7525.
+healthy_test = 54, ill_test = 49.
+healthy_test_correct_pct = 0.785, ill_test_correct_pct = 0.7525.
+Save to file p2_result/p2_result_inf_norm_regress_50_iterate.mat.
+========================================
+>> p2_s2_multiple_linear_regression
+Loading from p2_inf_norm_pathogenic_idx_3x_300.mat...
+Regress fit finished.
+Originally X has 301 columns.
+Start iteration to reduce dimension, min_coef = 0.1:
+Now X has 15 columns.
+Now X has 11 columns.
+Now X has 9 columns.
+Now X has 9 columns.
+Iteration finished.
+healthy_training = 264, ill_training = 226.
+healthy_training_correct_pct = 0.66, ill_training_correct_pct = 0.565.
+healthy_test = 42, ill_test = 45.
+healthy_test_correct_pct = 0.66, ill_test_correct_pct = 0.565.
+Save to file p2_result/p2_result_inf_norm_regress_300_iterate.mat.
+========================================
+>> p2_s2_multiple_linear_regression
+Loading from p2_inf_norm_pathogenic_idx_3x_200.mat...
+Regress fit finished.
+Originally X has 201 columns.
+Start iteration to reduce dimension, min_coef = 0.1:
+Now X has 8 columns.
+Now X has 6 columns.
+Now X has 6 columns.
+Iteration finished.
+healthy_training = 287, ill_training = 212.
+healthy_training_correct_pct = 0.7175, ill_training_correct_pct = 0.53.
+healthy_test = 57, ill_test = 48.
+healthy_test_correct_pct = 0.7175, ill_test_correct_pct = 0.53.
+Save to file p2_result/p2_result_inf_norm_regress_200_iterate.mat.
+========================================
+>> p2_s2_multiple_linear_regression
+Loading from p2_inf_norm_pathogenic_idx_3x_100.mat...
+Regress fit finished.
+Originally X has 101 columns.
+Start iteration to reduce dimension, min_coef = 0.1:
+Now X has 10 columns.
+Now X has 7 columns.
+Now X has 7 columns.
+Iteration finished.
+healthy_training = 223, ill_training = 278.
+healthy_training_correct_pct = 0.5575, ill_training_correct_pct = 0.695.
+healthy_test = 48, ill_test = 66.
+healthy_test_correct_pct = 0.5575, ill_test_correct_pct = 0.695.
+Save to file p2_result/p2_result_inf_norm_regress_100_iterate.mat.
+========================================
+>> p2_s2_multiple_linear_regression
+Loading from p2_inf_norm_pathogenic_idx_3x_50.mat...
+Regress fit finished.
+Originally X has 51 columns.
+Start iteration to reduce dimension, min_coef = 0.1:
+Now X has 9 columns.
+Now X has 7 columns.
+Now X has 7 columns.
+Iteration finished.
+healthy_training = 291, ill_training = 216.
+healthy_training_correct_pct = 0.7275, ill_training_correct_pct = 0.54.
+healthy_test = 59, ill_test = 49.
+healthy_test_correct_pct = 0.7275, ill_test_correct_pct = 0.54.
+Save to file p2_result/p2_result_inf_norm_regress_50_iterate.mat.
+========================================
+>> 
