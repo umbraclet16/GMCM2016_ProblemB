@@ -26,7 +26,7 @@ min_coef = 0.05;
 threshold = 0.01;
 %------------------------------------------------------------
 % Amount of bits extracted using infinite norm.
-% Takes value in [300;200;100;50]
+% Takes value in [1000;300;200;100;50]
 amount_of_bits_extracted = 300;
 %------------------------------------------------------------
 %%

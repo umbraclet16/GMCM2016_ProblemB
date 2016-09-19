@@ -103,4 +103,33 @@ healthy_test = 54, ill_test = 49.
 healthy_test_correct_pct = 0.54, ill_test_correct_pct = 0.49.
 Save to file p2_result_mat/p2_result_inf_norm_regress_50_iterate.mat.
 ========================================
->> 
+>> p2_s2_multiple_linear_regression
+Loading from p2_inf_norm_pathogenic_idx_3x_1000.mat...
+Multiple linear fitting succeeded!
+Regress fit finished.
+Originally X has 1001 columns.
+Start iteration to reduce dimension, min_coef = 0.05:
+Now X has 632 columns.
+Now X has 571 columns.
+Now X has 516 columns.
+Now X has 440 columns.
+Now X has 334 columns.
+Now X has 244 columns.
+Now X has 183 columns.
+Now X has 141 columns.
+Now X has 122 columns.
+Now X has 120 columns.
+Now X has 120 columns.
+Iteration finished.
+healthy_training = 371, ill_training = 373.
+healthy_training_correct_pct = 0.9275, ill_training_correct_pct = 0.9325.
+healthy_test = 53, ill_test = 58.
+healthy_test_correct_pct = 0.53, ill_test_correct_pct = 0.58.
+Save to file p2_result_mat/p2_result_inf_norm_regress_1000_iterate.mat.
+========================================
+
+
+
+
+
+
