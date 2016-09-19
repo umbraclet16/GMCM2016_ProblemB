@@ -50,6 +50,6 @@ ill_test_correct_pct = ill_test / 100;
 
 fprintf('healthy_test = %d, ill_test = %d.\n',healthy_test,ill_test)
 fprintf('healthy_test_correct_pct = %g, ill_test_correct_pct = %g.\n',...
-    healthy_training_correct_pct,ill_training_correct_pct)
+    healthy_test_correct_pct,ill_test_correct_pct)
 
 %%
