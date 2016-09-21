@@ -9,7 +9,7 @@ use_genotype_3x = 1;
 reg_method = 1;
 % Method used to extract possible pathogenic sites(bits).
 % 1: chi-square test; 2: infinite norm.
-p2_extract_method = 1;
+p2_extract_method = 2;
 % Save result to .mat file?
 p2_save_result = 0;
 % Iterate regression to reduce dimension of final result?
@@ -160,6 +160,10 @@ if iterate
 % Iterate to remove terms with coefficients < 0.15, B dimension ->   8;
 % Iterate to remove terms with coefficients <  0.2, B dimension ->   4.
 last_B_dim = 0;
+% Used to record pathogenic sites(bits) indices during the iteration,
+% due to that the dimension of X is dynamically decreased.
+% -1 is for occupying the correspondent col of constant term in X.
+psb_pathogenic_idx_iterated = [-1;possible_pathogenic_idx];
 
 fprintf('Start iteration to reduce dimension, min_coef = %g:\n',min_coef)
 while 1
@@ -169,6 +173,8 @@ while 1
             X(:,j) = [];
             % Remove corresponding columns in X_test.
             X_test(:,j) = [];
+            % Remove corresponding index in record array.
+            psb_pathogenic_idx_iterated(j) = [];
         end
     end
     fprintf('Now X has %d columns.\n',size(X,2)) % DEBUG
@@ -181,13 +187,27 @@ while 1
     end
     last_B_dim = length(B);
 end
+disp('Iteration finished.')
+
+% Bits to sites. Also remove fake idx for constant term.
+num_result = length(psb_pathogenic_idx_iterated);
+result = floor((psb_pathogenic_idx_iterated(2:num_result) - ones(num_result-1,1)) / 3) + 1;
+% Remove duplicates.
+result = fun_delete_duplicate(result);
+num_result = length(result);
+
+fprintf('After the iteration, we get %d most likely pathogenic sites:\n',num_result)
+for i = 1 : num_result
+    fprintf('NO.%d: %d, coef = %g\n',i,result(i),B(i+1))
+end
+fprintf('Coefficient of constant term is %g.\n',B(1))
+
 % 残差与残差区间的杠杆图
 figure(2)
 rcoplot(R,RINT)
 str_title = ['After iteration. site number:' num2str(size(X,2)) ...
     ' alpha:' num2str(alpha)];
 title(str_title)
-disp('Iteration finished.')
 clear last_B_dim
 %-------------------------------------------
 end
@@ -226,6 +246,10 @@ X = [ones(num_samples - 200,1),X];
 % Iterate to remove terms with coefficients < 0.15, B dimension ->  13;
 % Iterate to remove terms with coefficients <  0.2, B dimension ->   4.
 last_B_dim = 0;
+% Used to record pathogenic sites(bits) indices during the iteration,
+% due to that the dimension of X is dynamically decreased.
+% -1 is for occupying the correspondent col of constant term in X.
+psb_pathogenic_idx_iterated = [-1;possible_pathogenic_idx];
 
 fprintf('Start iteration to reduce dimension, min_coef = %g:\n',min_coef)
 while 1
@@ -235,6 +259,8 @@ while 1
             X(:,j) = [];
             % Remove corresponding columns in X_test.
             X_test(:,j) = [];
+            % Remove corresponding index in record array.
+            psb_pathogenic_idx_iterated(j) = [];
         end
     end
     fprintf('Now X has %d columns.\n',size(X,2)) % DEBUG
@@ -253,6 +279,20 @@ while 1
     last_B_dim = length(B);
 end
 disp('Iteration finished.')
+
+% Bits to sites. Also remove fake idx for constant term.
+num_result = length(psb_pathogenic_idx_iterated);
+result = floor((psb_pathogenic_idx_iterated(2:num_result) - ones(num_result-1,1)) / 3) + 1;
+% Remove duplicates.
+result = fun_delete_duplicate(result);
+num_result = length(result);
+
+fprintf('After the iteration, we get %d most likely pathogenic sites:\n',num_result)
+for i = 1 : num_result
+    fprintf('NO.%d: %d, coef = %g\n',i,result(i),B(i+1))
+end
+fprintf('Coefficient of constant term is %g.\n',B(1))
+
 clear last_B_dim
 %-------------------------------------------
 end
