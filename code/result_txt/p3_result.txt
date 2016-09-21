@@ -1,0 +1,44 @@
+By means of Fisher's combination test,
+found 27 genes possibly relevant to the diseases,
+satisfying p < 0.05. They are:
+gene NO: 293, p = 0.
+gene NO: 115, p = 7.06637e-06.
+gene NO: 150, p = 5.40369e-05.
+gene NO: 78, p = 0.000145506.
+gene NO: 102, p = 0.000328547.
+gene NO: 217, p = 0.000461643.
+gene NO: 153, p = 0.00163836.
+gene NO: 55, p = 0.00178332.
+gene NO: 22, p = 0.00259503.
+gene NO: 169, p = 0.00472419.
+gene NO: 121, p = 0.00639707.
+gene NO: 279, p = 0.00913731.
+gene NO: 9, p = 0.00917955.
+gene NO: 28, p = 0.0108978.
+gene NO: 45, p = 0.0146495.
+gene NO: 149, p = 0.025685.
+gene NO: 229, p = 0.0257481.
+gene NO: 235, p = 0.027375.
+gene NO: 42, p = 0.0290914.
+gene NO: 103, p = 0.0296084.
+gene NO: 297, p = 0.0304095.
+gene NO: 194, p = 0.0333076.
+gene NO: 192, p = 0.0344978.
+gene NO: 132, p = 0.0359497.
+gene NO: 265, p = 0.0367117.
+gene NO: 30, p = 0.0394734.
+gene NO: 90, p = 0.0462222.
+
+========================================
+By means of Most-significant SNP,
+Top 10 genes possibly relevant to the diseases are:
+gene NO: 102, p = 1.24554e-05.
+gene NO: 115, p = 0.000146166.
+gene NO: 150, p = 0.000147915.
+gene NO: 114, p = 0.000338403.
+gene NO: 193, p = 0.00048475.
+gene NO: 293, p = 0.000499405.
+gene NO: 265, p = 0.000659608.
+gene NO: 298, p = 0.000723028.
+gene NO: 28, p = 0.000943092.
+gene NO: 254, p = 0.00127404.
