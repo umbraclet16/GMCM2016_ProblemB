@@ -1,4 +1,4 @@
-% Convert encoding mode from 'AGCT' to numerical code(0~2).
+% Convert encoding mode from 'AGCT' to numerical code(0~2) and 3 bits vector(e.g.(1,0,0)).
 
 %%
 % Configurations.
